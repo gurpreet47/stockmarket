@@ -1,0 +1,279 @@
+:root {
+    --primary-color: #3498db;
+    --secondary-color: #2ecc71;
+    --background-color: #f4f4f4;
+    --text-color: #333;
+    --card-background: #fff;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: var(--background-color);
+    color: var(--text-color);
+    line-height: 1.6;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center; /* Align items vertically */
+    margin-bottom: 30px;
+}
+
+h1 {
+    color: var(--primary-color);
+    font-size: 2.5em;
+}
+
+#reset-button {
+    background-color: #e74c3c; /* Red color for reset */
+    color: white;
+    font-size: 0.9em; /* Smaller font size */
+    padding: 5px 10px; /* Smaller padding */
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: opacity 0.3s ease;
+}
+
+#reset-button:hover {
+    opacity: 0.9;
+}
+
+.company-selection {
+    display: flex;
+    justify-content: center; /* Center the buttons */
+    margin-bottom: 20px;
+}
+
+.company-button {
+    background-color: #3498db; /* Default button color */
+    color: white;
+    border: none;
+    border-radius: 4px;
+    padding: 10px 20px;
+    margin: 0 10px; /* Space between buttons */
+    cursor: pointer;
+    font-size: 1em;
+    transition: background-color 0.3s ease;
+}
+
+.company-button:hover {
+    background-color: #2980b9; /* Darker blue on hover */
+}
+
+.company-button.selected {
+    background-color: #2ecc71; /* Highlight color for selected button */
+}
+
+.dashboard {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+.balance-card, .stock-info {
+    background-color: var(--card-background);
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    flex: 1; /* Allow both cards to take equal space */
+}
+
+.balance-card h2 {
+    color: var(--primary-color);
+    margin-bottom: 10px;
+}
+
+.balance-card p {
+    font-size: 1.5em;
+    font-weight: bold;
+}
+
+.stock-info p {
+    margin-bottom: 10px;
+}
+
+.profit-loss {
+    font-size: 1.2em;
+    margin-top: 10px;
+    color: #333; /* Default color */
+}
+
+.modal {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 1000;
+}
+
+.modal-content {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+    text-align: center;
+}
+
+.close-button {
+    cursor: pointer;
+    float: right;
+    font-size: 1.5em;
+}
+
+.hidden {
+    display: none;
+}
+
+.chart-container {
+    position: relative;
+    height: 400px;
+    width: 100%;
+    background-color: #fff;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+#stockChart {
+    width: 100% !important;
+    height: 100% !important;
+}
+
+.action-button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 1em;
+    transition: background-color 0.3s ease;
+}
+
+.buy {
+    background-color: #2ecc71; /* Green for buy */
+    color: white;
+}
+
+.sell {
+    background-color: #e67e22; /* Orange for sell */
+    color: white;
+}
+
+.buy:hover {
+    background-color: #27ae60; /* Darker green on hover */
+}
+
+.sell:hover {
+    background-color: #d35400; /* Darker orange on hover */
+}
+
+.stock-controls{
+    text-align: center;
+}
+
+.toast {
+    position: fixed;
+    bottom: 20px;
+    left: 70%;
+    transform: translateX(0%);
+    background-color: #333;
+    color: #fff;
+    padding: 10px 20px;
+    border-radius: 5px;
+    opacity: 0.9;
+    z-index: 1000;
+    transition: opacity 0.5s ease;
+}
+
+.price-up {
+    color: var(--secondary-color);
+    transition: color 0.3s ease;
+}
+
+.price-down {
+    color: #e74c3c;
+    transition: color 0.3s ease;
+}
+
+.celebration {
+    position: fixed;
+    top: 20%;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: rgba(255, 223, 186, 0.9);
+    color: #333;
+    padding: 20px;
+    border-radius: 10px;
+    font-size: 1.5em;
+    text-align: center;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+    z-index: 1000;
+    opacity: 0;
+    transition: opacity 0.5s ease;
+}
+
+.celebration.show {
+    opacity: 1;
+    animation: bounce 0.5s forwards;
+}
+
+@keyframes bounce {
+    0% { transform: translateY(0); }
+    50% { transform: translateY(-20px); }
+    100% { transform: translateY(0); }
+}
+
+.hidden {
+    display: none;
+}
+
+footer {
+    background-color: var(--card-background);
+    padding: 20px;
+    text-align: center;
+    border-top: 1px solid #ddd;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+}
+
+footer p {
+    margin: 5px 0;
+}
+
+footer a {
+    color: var(--primary-color);
+    text-decoration: none;
+}
+
+footer a:hover {
+    text-decoration: underline;
+}
+
+@media (max-width: 768px) {
+    main {
+        flex-direction: column;
+    }
+
+    .chart-container {
+        min-width: 100%;
+    }
+}

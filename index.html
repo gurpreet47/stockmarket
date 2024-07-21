@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stock Market Simulator</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css"> <!-- Link to your CSS file -->
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Stock Market Simulator</h1>
+            <button id="reset-button" class="action-button reset">Reset</button>
+        </header>
+        <main>
+            <div class="company-selection">
+                <button class="company-button" data-company="CompanyA">Company A</button>
+                <button class="company-button" data-company="CompanyB">Company B</button>
+                <button class="company-button" data-company="CompanyC">Company C</button>
+            </div>
+            <div class="dashboard">
+                <div class="balance-card">
+                    <h2>Your Balance</h2>
+                    <p>$<span id="money">1000.00</span></p>
+                </div>
+                <div class="stock-info">
+                    <p id="current-price" class="price">Current Price: $0.00</p>
+                    <p id="shares-owned" class="shares">Shares Owned: 0</p>
+                    <div id="profit-loss" class="profit-loss">Profit/Loss for Company: $0.00</div>
+                </div>
+            </div>
+            <br>
+
+            <!-- Modal for Alerts -->
+<div id="alert-modal" class="modal hidden">
+    <div class="modal-content">
+        <span class="close-button">&times;</span>
+        <p id="alert-message">This is an alert message!</p>
+        <button id="alert-confirm" class="action-button">OK</button>
+    </div>
+</div>
+
+<!-- Modal for Confirmations -->
+<div id="confirm-modal" class="modal hidden">
+    <div class="modal-content">
+        <span class="close-button">&times;</span>
+        <p id="confirm-message">Are you sure?</p>
+        <button id="confirm-yes" class="action-button">Yes</button>
+        <button id="confirm-no" class="action-button">No</button>
+    </div>
+</div>
+            <div class="chart-container">
+                <canvas id="stockChart"></canvas>
+            </div>
+            <br>
+            <div class="stock-controls">
+                <button id="buy-stock" class="action-button buy">Buy Stock</button>
+                <button id="sell-stock" class="action-button sell">Sell Stock</button>
+            </div>
+        </main>
+        <div id="celebration" class="celebration hidden">🎉 Profit! You sold your shares! 🎉</div>
+    </div>
+    <footer>
+        <p>&copy; 2024 Stock Market Simulator. All rights reserved.</p>
+        <p><a href="terms.html" id="terms-link">Terms and Conditions</a></p>
+    </footer>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script> <!-- Link to Chart.js -->
+    <script src="script.js"></script> <!-- Link to your JavaScript file -->
+</body>
+</html>
